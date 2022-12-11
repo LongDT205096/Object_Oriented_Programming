@@ -1,0 +1,9 @@
+In content management systems, the terms frontend and backend may refer to the end-user facing views of the CMS and the administrative views, respectively.
+
+In speech synthesis, the frontend refers to the part of the synthesis system that converts the input text into a symbolic phonetic representation, and the backend converts the symbolic phonetic representation into actual sounds.
+
+For major computer subsystems, a graphical file manager is a frontend to the computer's file system, and a shell interfaces with the operating system. The frontend faces the user, and the backend launches the programs of the operating system in response.[citation needed]
+
+In compilers, the frontend translates a computer programming source code into an intermediate representation, and the backend works with the intermediate representation to produce code in a computer output language. The backend usually optimizes to produce code that runs faster. The front-end/back-end distinction can separate the parser section that deals with source code and the backend that generates code and optimizes. Some designs, such as GCC, offer choices between multiple frontends (parsing different source languages) or backends (generating code for different target processors).
+
+Using the command-line interface (CLI) requires the acquisition of special terminology and memorization of commands, so a graphical user interface (GUI) acts as a frontend desktop environment instead.
