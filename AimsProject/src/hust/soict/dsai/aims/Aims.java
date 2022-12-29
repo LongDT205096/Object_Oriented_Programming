@@ -61,7 +61,7 @@ public class Aims {
                                         Order.addMedia(Item);
                                         break;
                                     }
-                                    else if(optMedia == 2) ((Playable) Item).play();
+                                    else if(optMedia == 2) System.out.println(((Playable) Item).play());
                                 } while(optMedia != 0);
                             } else System.out.println("Item not found\n");
                         } break;
@@ -86,7 +86,7 @@ public class Aims {
                             String infomation = Options.nextLine();
     
                             Media Item = store.getMedia(infomation);
-                            if(Item != null) ((Playable) Item).play();
+                            if(Item != null) System.out.println(((Playable) Item).play());
                             else System.out.println("Item not found");
                             
                         } break;
@@ -193,7 +193,7 @@ public class Aims {
                             String infomation = Options.nextLine();
                             Media Item = Order.getMedia(infomation);
 
-                            if(infomation != null) ((Playable) Item).play();
+                            if(infomation != null) System.out.println(((Playable) Item).play());
                             else System.out.println("Item not found");
                         } break;
                         
