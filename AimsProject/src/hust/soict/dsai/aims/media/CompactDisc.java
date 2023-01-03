@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class CompactDisc extends Disc implements Playable{
     private String artist;
-	private ArrayList<Track> tracks = new 
-			ArrayList<Track>();
+	private ArrayList<Track> tracks = new ArrayList<Track>();
     public static int nbCD = 0;
     
     public String getArtist() {
@@ -47,7 +46,7 @@ public class CompactDisc extends Disc implements Playable{
     }
 
     public String toString() {
-		return "CD" + this.getId() + " - " + this.getTitle() + " - " + this.artist + " - " + this.getCategory()
+		return "CD_" + this.getId() + " - " + this.getTitle() + " - " + this.artist + " - " + this.getCategory()
 				+ " - " + this.getDirector() + " - " + this.getLength() + ": " + this.getCost() + "$";
 	}
 }

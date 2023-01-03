@@ -9,8 +9,7 @@
             "name": "Launch CartScreen",
             "request": "launch",
             "mainClass": "hust.soict.dsai.aims.screen.Interface.controller.CartScreen",
-            "projectName": "AimsProject_5cf87d07",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-19/lib\" --add-modules javafx.controls,javafx.fxml,javafx.web,javafx.media,javafx.swing,javafx.base"
+            "projectName": "AimsProject_5cf87d07"
         },
         {
             "type": "java",
@@ -30,7 +29,8 @@
             "name": "Launch StoreScreen",
             "request": "launch",
             "mainClass": "hust.soict.dsai.aims.screen.StoreScreen",
-            "projectName": "AimsProject_5cf87d07"
+            "projectName": "AimsProject_5cf87d07",
+            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-19/lib\" --add-modules javafx.controls,javafx.fxml,javafx.web,javafx.media,javafx.swing,javafx.base"
         },
         {
             "type": "java",

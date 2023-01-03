@@ -6,17 +6,17 @@ public class Book extends Media{
     public static int nbBook = 0;
     private List<String> authors = new ArrayList<String>();
 
-    public Book(int id, String title, int length) {
+    public Book(String title, int length) {
 		super(++nbBook ,title, length);
 	}
 
-	public Book(int id, String title, String category, float cost, int length) {
+	public Book(String title, String category, float cost, int length) {
 		super(++nbBook, title, category, cost, length);
 	}
-	public Book(int id, String title, String category, float cost) {
+	public Book(String title, String category, float cost) {
 		super(++nbBook, title, category, cost);
 	}
-	public Book(int id, String title, String category, float cost, ArrayList<String> authors, int length) {
+	public Book(String title, String category, float cost, ArrayList<String> authors, int length) {
 		super(++nbBook, title, category, cost, length);
 		this.authors = authors;
 

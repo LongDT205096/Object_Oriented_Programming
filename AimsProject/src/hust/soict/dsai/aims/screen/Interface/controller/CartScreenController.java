@@ -1,7 +1,5 @@
 package hust.soict.dsai.aims.screen.Interface.controller;
 
-import java.util.Collections;
-
 import javax.swing.JOptionPane;
 
 import hust.soict.dsai.aims.cart.Cart;
@@ -10,7 +8,6 @@ import hust.soict.dsai.aims.media.Playable;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -100,21 +97,6 @@ public class CartScreenController {
     }
 
     void showFilteredMedia(String filter){
-        String filterType;
-    	if (radioBtnFilterTitle.isSelected()) {
-    		filterType = "title";
-    	} else {
-    		filterType = "id";
-    	}
-    	
-        FilteredList<Media> list = new FilteredList<>(cart.getItemsOrdered(), null);
-        if(filterType == "title"){
-            Collections.sort(list, Media.COMPARE_BY_TITLE_COST);
-            tblMedia.setItems(list);
-        } else{
-            Collections.sort(list, Media.COMPARE_BY_COST_TITLE);
-            tblMedia.setItems(list);
-        }
         
     }
 

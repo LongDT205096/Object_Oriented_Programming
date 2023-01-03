@@ -66,9 +66,9 @@ public class StoreScreen extends JFrame{
     private class viewCart implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e){
-			Container cp = getContentPane();
-            cp.setLayout(new BorderLayout());
-            cp.add(new CartScreen(cart));
+			Container cb = getContentPane();
+            cb.setLayout(new BorderLayout());
+            cb.add(new CartScreen(cart));
 		}
 	}
 
@@ -86,7 +86,7 @@ public class StoreScreen extends JFrame{
     }
 
     public StoreScreen(Store store, Cart cart){
-        this.cart = cart;
+        StoreScreen.cart = cart;
         this.store = store;
         Container cp = getContentPane();
         cp.setLayout(new BorderLayout());

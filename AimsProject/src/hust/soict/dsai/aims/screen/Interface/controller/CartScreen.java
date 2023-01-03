@@ -1,8 +1,6 @@
 package hust.soict.dsai.aims.screen.Interface.controller;
 
 import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.media.CompactDisc;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 import java.io.IOException;
 import javax.swing.JFrame;
@@ -38,17 +36,5 @@ public class CartScreen extends JFrame {
                 }
             }
         });
-    }
-    
-    public static void main(String[] args){
-        Cart cart = new Cart();
-        DigitalVideoDisc dvd_1 = new DigitalVideoDisc("The Lion King", "Animation",
-				19.95f, 87, "Roger Allers");
-            cart.addMedia(dvd_1);
-        CompactDisc cd_1 = new CompactDisc("Famous Friends", "Music", 
-                14.97f, 90, null, "Chris");
-            cart.addMedia(cd_1);
-
-        new CartScreen(cart);
     }
 }
