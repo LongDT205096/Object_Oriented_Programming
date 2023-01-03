@@ -70,7 +70,26 @@ public class Media {
         }
     }
 
+    public boolean filterProperty(String filter, String filterType) {
+        if (filter == null || filter.isEmpty()) {
+            return true;
+        } else {
+    		if (filterType == "title") {
+    			if (this.getTitle().toLowerCase().indexOf(filter.toLowerCase()) != -1) {
+    				return true;
+    			}
+    		} else if (filterType == "id") {
+    			if(Integer.toString(this.getId()).toLowerCase().indexOf(filter.toLowerCase()) != -1) {
+    				return true;
+    			}
+    		}
+        }
+        return false;
+	}
+
     public String toString(){
         return "Media" + " - " + this.title + " - " + this.category + ": " + this.cost + " $";
     }
+
+
 }

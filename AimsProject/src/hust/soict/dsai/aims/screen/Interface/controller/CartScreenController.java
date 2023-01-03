@@ -1,7 +1,5 @@
 package hust.soict.dsai.aims.screen.Interface.controller;
 
-import java.util.Collections;
-
 import javax.swing.JOptionPane;
 
 import hust.soict.dsai.aims.cart.Cart;
@@ -10,6 +8,7 @@ import hust.soict.dsai.aims.media.Playable;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -98,23 +97,20 @@ public class CartScreenController {
         }
     }
 
-    void showFilteredMedia(String filter){
-        String filterType;
+    void showFilteredMedia(String filter) {
+    	String filterType;
     	if (radioBtnFilterTitle.isSelected()) {
     		filterType = "title";
     	} else {
     		filterType = "id";
     	}
     	
-        if(filterType == "title"){
-            tblMedia.getItems().clear();
-            Collections.sort(cart.getItemsOrdered(), Media.COMPARE_BY_TITLE_COST);
-            tblMedia.setItems(cart.getItemsOrdered());
-        } else if(filterType == "id"){
-            tblMedia.getItems().clear();
-            Collections.sort(cart.getItemsOrdered(), Media.COMPARE_BY_COST_TITLE);
-            tblMedia.setItems(cart.getItemsOrdered());
-        }
+    	FilteredList<Media> list = new FilteredList<>(cart.getItemsOrdered(), null);
+		list.setPredicate(media -> media.filterProperty(filter, filterType));
+		
+		if (cart.getItemsOrdered()!= null) {
+			tblMedia.setItems(list);
+		}
     }
 
     @FXML
