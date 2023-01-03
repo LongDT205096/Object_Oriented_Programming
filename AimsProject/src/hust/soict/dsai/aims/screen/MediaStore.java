@@ -58,7 +58,6 @@ public class MediaStore extends JPanel{
         @Override
         public void actionPerformed(ActionEvent e){
             StoreScreen.cart.addMedia(media);
-            JOptionPane.showMessageDialog(null, "Adding successfull");
         }
     }
 }

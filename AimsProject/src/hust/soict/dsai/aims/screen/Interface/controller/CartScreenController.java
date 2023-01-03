@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.screen.Interface.controller;
 
+import java.util.Collections;
+
 import javax.swing.JOptionPane;
 
 import hust.soict.dsai.aims.cart.Cart;
@@ -97,13 +99,28 @@ public class CartScreenController {
     }
 
     void showFilteredMedia(String filter){
-        
+        String filterType;
+    	if (radioBtnFilterTitle.isSelected()) {
+    		filterType = "title";
+    	} else {
+    		filterType = "id";
+    	}
+    	
+        if(filterType == "title"){
+            tblMedia.getItems().clear();
+            Collections.sort(cart.getItemsOrdered(), Media.COMPARE_BY_TITLE_COST);
+            tblMedia.setItems(cart.getItemsOrdered());
+        } else if(filterType == "id"){
+            tblMedia.getItems().clear();
+            Collections.sort(cart.getItemsOrdered(), Media.COMPARE_BY_COST_TITLE);
+            tblMedia.setItems(cart.getItemsOrdered());
+        }
     }
 
     @FXML
     void btnPlayPressed(ActionEvent event){
         Media media = tblMedia.getSelectionModel().getSelectedItem();
-        JOptionPane.showMessageDialog(null, ((Playable)media).play().toString());
+        JOptionPane.showMessageDialog(null, ((Playable)media).play());
     }
 
     @FXML

@@ -52,7 +52,7 @@ public class StoreScreen extends JFrame{
         JButton cart = new JButton("View cart");
         cart.setPreferredSize(new Dimension(100, 50));
         cart.setMaximumSize(new Dimension(100, 500));
-        cart.addActionListener(new viewCart());
+        cart.addActionListener(new btnViewCart());
 
         header.add(Box.createRigidArea(new Dimension(10, 10)));
         header.add(title);
@@ -62,15 +62,6 @@ public class StoreScreen extends JFrame{
 
         return header;
     }
-
-    private class viewCart implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e){
-			Container cb = getContentPane();
-            cb.setLayout(new BorderLayout());
-            cb.add(new CartScreen(cart));
-		}
-	}
 
     JPanel createCenter(){
         JPanel center = new JPanel();
@@ -84,6 +75,15 @@ public class StoreScreen extends JFrame{
 
         return center;
     }
+
+    private class btnViewCart implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e){
+			Container cb = getContentPane();
+            cb.setLayout(new BorderLayout());
+            cb.add(new CartScreen(cart));
+		}
+	}
 
     public StoreScreen(Store store, Cart cart){
         StoreScreen.cart = cart;

@@ -8,6 +8,7 @@ public class Media {
     private String title;
     private String category;
     private float cost;
+    public static int nbMedia = 0;
 
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
@@ -57,7 +58,6 @@ public class Media {
         this.category = category;
         this.cost = cost;
     }
-
     public boolean isMatch(String title) {
         return true;
     }	
