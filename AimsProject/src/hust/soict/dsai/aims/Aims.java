@@ -10,22 +10,22 @@ public class Aims {
     public static void main(String[] args){
         Store store = new Store();
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation",
-				"Roger Allers", 87, 19.95f);
-		store.addMedia(dvd1);
+				19.95f, 87, "Roger Allers");
+		    store.addMedia(dvd1);
 		
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction",
-				"George Lucas", 87, 19.95f);
-		store.addMedia(dvd2);
+				19.95f, 87, "George Lucas");
+		    store.addMedia(dvd2);
 		
-		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation",
-				18.99f);
-		store.addMedia(dvd3);
+		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
+		    store.addMedia(dvd3);
 		
-        CompactDisc cd1 = new CompactDisc("Famous Friends", "Music", 14.97f, 90, null, "Chris");
-        store.addMedia(cd1);
+        CompactDisc cd1 = new CompactDisc("Famous Friends", "Music", 
+                14.97f, 90, null, "Chris");
+            store.addMedia(cd1);
         
         CompactDisc cd2 = new CompactDisc("Famous", "Music", 16.78f);
-        store.addMedia(cd2);
+            store.addMedia(cd2);
 
         Cart Order = new Cart(); 
         Integer opt; Scanner Options;
@@ -60,8 +60,7 @@ public class Aims {
                                     if(optMedia == 1) {
                                         Order.addMedia(Item);
                                         break;
-                                    }
-                                    else if(optMedia == 2) System.out.println(((Playable) Item).play());
+                                    } else if(optMedia == 2) System.out.println(((Playable) Item).play());
                                 } while(optMedia != 0);
                             } else System.out.println("Item not found\n");
                         } break;
@@ -168,11 +167,11 @@ public class Aims {
 
                             switch(choice){
                                 case "cost": case "Cost": {
-                                    Collections.sort(Order.getItemOrdered(), Media.COMPARE_BY_COST_TITLE);
+                                    Collections.sort(Order.getItemsOrdered(), Media.COMPARE_BY_COST_TITLE);
                                     Order.print();
                                 } break;
                                 case "title": case "Title": {
-                                    Collections.sort(Order.getItemOrdered(), Media.COMPARE_BY_TITLE_COST);
+                                    Collections.sort(Order.getItemsOrdered(), Media.COMPARE_BY_TITLE_COST);
                                     Order.print();
                                 } break;
                             }
@@ -199,7 +198,7 @@ public class Aims {
                         
                         case 5: {
                             System.out.println("Order success");
-                            Order.getItemOrdered().clear();
+                            Order.getItemsOrdered().clear();
                         }
                     }
                 } while (optCart != 0);

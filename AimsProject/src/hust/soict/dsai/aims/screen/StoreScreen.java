@@ -3,12 +3,16 @@ package hust.soict.dsai.aims.screen;
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
+import java.awt.event.*;
 
+import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.*;
+import hust.soict.dsai.aims.screen.Interface.controller.CartScreen;
 import hust.soict.dsai.aims.store.Store.Store;
 
 public class StoreScreen extends JFrame{
     private Store store;
+    public static Cart cart;
 
     JPanel createNorth(){
         JPanel north = new JPanel();
@@ -48,6 +52,7 @@ public class StoreScreen extends JFrame{
         JButton cart = new JButton("View cart");
         cart.setPreferredSize(new Dimension(100, 50));
         cart.setMaximumSize(new Dimension(100, 500));
+        cart.addActionListener(new viewCart());
 
         header.add(Box.createRigidArea(new Dimension(10, 10)));
         header.add(title);
@@ -57,6 +62,15 @@ public class StoreScreen extends JFrame{
 
         return header;
     }
+
+    private class viewCart implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e){
+			Container cp = getContentPane();
+            cp.setLayout(new BorderLayout());
+            cp.add(new CartScreen(cart));
+		}
+	}
 
     JPanel createCenter(){
         JPanel center = new JPanel();
@@ -71,7 +85,8 @@ public class StoreScreen extends JFrame{
         return center;
     }
 
-    public StoreScreen(Store store){
+    public StoreScreen(Store store, Cart cart){
+        this.cart = cart;
         this.store = store;
         Container cp = getContentPane();
         cp.setLayout(new BorderLayout());
@@ -87,19 +102,20 @@ public class StoreScreen extends JFrame{
 
     public static void main(String[] args) {
         Store store = new Store();
+        Cart cart = new Cart();
 		DigitalVideoDisc dvd_1 = new DigitalVideoDisc("The Lion King", "Animation",
-				"Roger Allers", 87, 19.95f);
+				19.95f, 87, "Roger Allers");
 		    store.addMedia(dvd_1);
 		DigitalVideoDisc dvd_2 = new DigitalVideoDisc("Star Wars", "Science Fiction",
-				"George Lucas", 87, 19.95f);
+				19.95f, 87, "George Lucas");
 		    store.addMedia(dvd_2);
-		Media media_1 = new Media("Aladin", "Animation", 18.99f);
-		    store.addMedia(media_1);
-        CompactDisc cd_1 = new CompactDisc("Famous Friends", "Music", 14.97f, 90, null, "Chris");
+        CompactDisc cd_1 = new CompactDisc("Famous Friends", "Music",
+                14.97f, 90, null, "Chris");
             store.addMedia(cd_1);
         CompactDisc cd_2 = new CompactDisc("Famous", "Music", 16.78f);
             store.addMedia(cd_2);
 
-        new StoreScreen(store);
+        new StoreScreen(store, cart);
+
 	}
 }

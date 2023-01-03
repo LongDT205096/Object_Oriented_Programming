@@ -8,6 +8,8 @@ import hust.soict.dsai.aims.media.*;
 
 public class MediaStore extends JPanel{
     private Media media;
+
+
     public MediaStore(Media media){
         this.media = media;
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -55,7 +57,8 @@ public class MediaStore extends JPanel{
     private class AddCartButton implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e){
-            JOptionPane.showMessageDialog(null, "Adding successfull: " + media.getTitle());
+            StoreScreen.cart.addMedia(media);
+            JOptionPane.showMessageDialog(null, "Adding successfull");
         }
     }
 }

@@ -3,24 +3,23 @@ package hust.soict.dsai.aims.media;
 import java.util.*;
 
 public class Book extends Media{
-    private int length;
+    public static int nbBook = 0;
     private List<String> authors = new ArrayList<String>();
 
-    public Book(String title, int length) {
-		super(title);
-		this.length = length;
+    public Book(int id, String title, int length) {
+		super(++nbBook ,title, length);
 	}
-	public Book(String title, String category, float cost, int length) {
-		super(title, category, cost);
-		this.length = length;
+
+	public Book(int id, String title, String category, float cost, int length) {
+		super(++nbBook, title, category, cost, length);
 	}
-	public Book(String title, String category, float cost) {
-		super(title, category, cost);
+	public Book(int id, String title, String category, float cost) {
+		super(++nbBook, title, category, cost);
 	}
-	public Book(String title, String category, float cost, ArrayList<String> authors, int length) {
-		super(title, category, cost);
+	public Book(int id, String title, String category, float cost, ArrayList<String> authors, int length) {
+		super(++nbBook, title, category, cost, length);
 		this.authors = authors;
-		this.length = length;
+
 	}
 
     public void addAuthor(String authorName) {
@@ -41,6 +40,6 @@ public class Book extends Media{
 
 	public String toString(){
 		return this.getTitle() + " - " + this.authors + " - " + this.getCategory()
-				+ " - " + this.length + ": " + this.getCost() + "$";
+				+ " - " + this.getLength() + ": " + this.getCost() + "$";
 	}
 }
