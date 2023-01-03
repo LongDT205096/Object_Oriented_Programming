@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Aims",
+            "request": "launch",
+            "mainClass": "hust.soict.dsai.aims.Aims",
+            "projectName": "AimsProject_ee999e8"
+        },
+        {
+            "type": "java",
             "name": "Launch CartScreen",
             "request": "launch",
             "mainClass": "hust.soict.dsai.aims.screen.Interface.controller.CartScreen",
