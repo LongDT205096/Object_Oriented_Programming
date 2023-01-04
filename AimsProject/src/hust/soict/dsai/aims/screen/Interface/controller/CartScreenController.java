@@ -14,7 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class CartScreenController {
+public class CartScreenController{
     @FXML
     private TableView<Media> tblMedia;
 
@@ -125,6 +125,10 @@ public class CartScreenController {
 
     @FXML
     void viewStorePressed(ActionEvent event) {
+        java.awt.Window win[] = java.awt.Window.getWindows();
+        for(int i=0;i<win.length;i++){
+            win[i].setVisible(false);
+        }
         new StoreScreen(store, cart);
     }
 

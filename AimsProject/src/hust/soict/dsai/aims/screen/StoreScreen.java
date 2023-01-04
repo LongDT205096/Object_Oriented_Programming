@@ -75,7 +75,7 @@ public class StoreScreen extends JFrame{
     private class btnViewCart implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e){
-            dispose();
+            setVisible(false);
 			new CartScreen(store, cart);
 		}
 	}
