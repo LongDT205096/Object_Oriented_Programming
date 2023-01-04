@@ -23,6 +23,7 @@ public class CartScreen extends JFrame {
         this.add(fxPanel);
         this.setTitle("Cart");
         this.setVisible(true);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         Platform.runLater(new Runnable() {
             @Override

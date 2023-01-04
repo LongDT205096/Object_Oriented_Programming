@@ -126,7 +126,7 @@ public class CartScreenController{
     @FXML
     void viewStorePressed(ActionEvent event) {
         java.awt.Window win[] = java.awt.Window.getWindows();
-        for(int i=0;i<win.length;i++){
+        for(int i=0; i<win.length; i++){
             win[i].setVisible(false);
         }
         new StoreScreen(store, cart);
