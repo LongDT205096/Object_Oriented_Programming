@@ -32,7 +32,11 @@ public class StoreScreen extends JFrame{
 
         menu.add(smUpdateStore);
         menu.add(new JMenuItem("View store"));
-        menu.add(new JMenuItem("View cart"));
+
+
+        JMenuItem cart = new JMenuItem("View cart");
+        cart.addActionListener(new btnViewCart());
+        menu.add(cart);
 
         JMenuBar menuBar = new JMenuBar();
         menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -49,16 +53,9 @@ public class StoreScreen extends JFrame{
         title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 50));
         title.setForeground(Color.CYAN);
 
-        JButton cart = new JButton("View cart");
-        cart.setPreferredSize(new Dimension(100, 50));
-        cart.setMaximumSize(new Dimension(100, 500));
-        cart.addActionListener(new btnViewCart());
-
         header.add(Box.createRigidArea(new Dimension(10, 10)));
         header.add(title);
         header.add(Box.createHorizontalGlue());
-        header.add(cart);
-        header.add(Box.createRigidArea(new Dimension(10, 10)));
 
         return header;
     }
@@ -79,9 +76,7 @@ public class StoreScreen extends JFrame{
     private class btnViewCart implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e){
-			Container cb = getContentPane();
-            cb.setLayout(new BorderLayout());
-            cb.add(new CartScreen(cart));
+			new CartScreen(store, cart);
 		}
 	}
 
@@ -116,6 +111,5 @@ public class StoreScreen extends JFrame{
             store.addMedia(cd_2);
 
         new StoreScreen(store, cart);
-
 	}
 }

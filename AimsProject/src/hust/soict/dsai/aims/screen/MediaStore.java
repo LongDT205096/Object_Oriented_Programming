@@ -9,7 +9,6 @@ import hust.soict.dsai.aims.media.*;
 public class MediaStore extends JPanel{
     private Media media;
 
-
     public MediaStore(Media media){
         this.media = media;
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

@@ -116,14 +116,14 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label lineSpacing="10.0" text="0$">
+                  <Label fx:id="costTotal" lineSpacing="10.0" text="0$">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
+            <Button fx:id="btnPlaceOrder" mnemonicParsing="false" onAction="#placeOrderPressed" style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>

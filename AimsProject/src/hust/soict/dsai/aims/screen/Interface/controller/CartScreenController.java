@@ -1,11 +1,10 @@
 package hust.soict.dsai.aims.screen.Interface.controller;
 
-import javax.swing.JOptionPane;
-
 import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.media.Media;
-import hust.soict.dsai.aims.media.Playable;
+import hust.soict.dsai.aims.media.*;
+import hust.soict.dsai.aims.store.Store.Store;
 
+import javax.swing.JOptionPane;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.transformation.FilteredList;
@@ -37,6 +36,9 @@ public class CartScreenController {
     private Button btnRemove;
 
     @FXML
+    private Button btnPlaceOrder;
+
+    @FXML
     private ToggleGroup filterCategory;
 
     @FXML
@@ -47,11 +49,15 @@ public class CartScreenController {
 
     @FXML
     private RadioButton radioBtnFilterTitle;
+
+    @FXML
+    private Label costTotal;
     
     private Cart cart;
-    public CartScreenController(Cart cart){
-        super();
+    private Store store;
+    public CartScreenController(Store store, Cart cart){
         this.cart = cart;
+        this.store = store;
     }
 
     @FXML
@@ -63,7 +69,7 @@ public class CartScreenController {
         if (cart.getItemsOrdered()!= null) {
     		tblMedia.setItems(cart.getItemsOrdered());
     	}
-
+        costTotal.setText(cart.totalCost() + "$");
         btnPlay.setVisible(false);
         btnRemove.setVisible(false);
 
@@ -123,5 +129,13 @@ public class CartScreenController {
     void btnRemovePressed(ActionEvent event){
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         cart.removeMedia(media);
+        costTotal.setText(cart.totalCost() + "$");
+    }
+
+    @FXML
+    void placeOrderPressed(ActionEvent event) {
+        JOptionPane.showMessageDialog(null, "Order completed" + "\n" + "Total: " + cart.totalCost() + "$");
+        cart.getItemsOrdered().clear();
+        costTotal.setText("0$");
     }
 }
