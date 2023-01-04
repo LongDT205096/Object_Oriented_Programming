@@ -2,6 +2,7 @@ package hust.soict.dsai.aims.screen.Interface.controller;
 
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.*;
+import hust.soict.dsai.aims.screen.StoreScreen;
 import hust.soict.dsai.aims.store.Store.Store;
 
 import javax.swing.JOptionPane;
@@ -30,6 +31,9 @@ public class CartScreenController {
     private TableColumn<Media, Float> colMediaCost;
 
     @FXML
+    private MenuItem btnViewStore;
+
+    @FXML
     private Button btnPlay;
 
     @FXML
@@ -37,12 +41,6 @@ public class CartScreenController {
 
     @FXML
     private Button btnPlaceOrder;
-
-    @FXML
-    private ToggleGroup filterCategory;
-
-    @FXML
-    private TextField tfFilter;
 
     @FXML
     private RadioButton radioBtnFilterId;
@@ -53,6 +51,12 @@ public class CartScreenController {
     @FXML
     private Label costTotal;
     
+    @FXML
+    private ToggleGroup filterCategory;
+
+    @FXML
+    private TextField tfFilter;
+
     private Cart cart;
     private Store store;
     public CartScreenController(Store store, Cart cart){
@@ -117,6 +121,11 @@ public class CartScreenController {
 		if (cart.getItemsOrdered()!= null) {
 			tblMedia.setItems(list);
 		}
+    }
+
+    @FXML
+    void viewStorePressed(ActionEvent event) {
+        new StoreScreen(store, cart);
     }
 
     @FXML

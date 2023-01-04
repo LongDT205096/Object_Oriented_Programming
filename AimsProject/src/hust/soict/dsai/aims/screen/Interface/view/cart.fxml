@@ -31,7 +31,7 @@
                               <MenuItem mnemonicParsing="false" text="Add DVD" />
                           </items>
                         </Menu>
-                        <MenuItem mnemonicParsing="false" text="View Store" />
+                        <MenuItem fx:id="btnViewStore" mnemonicParsing="false" onAction="#viewStorePressed" text="View Store" />
                         <MenuItem mnemonicParsing="false" text="View Cart" />
                   </items>
                 </Menu>

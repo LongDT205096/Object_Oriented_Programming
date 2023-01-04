@@ -29,10 +29,9 @@ public class StoreScreen extends JFrame{
         smUpdateStore.add(new JMenuItem("Add Book"));
         smUpdateStore.add(new JMenuItem("Add CD"));
         smUpdateStore.add(new JMenuItem("Add DVD"));
-
         menu.add(smUpdateStore);
-        menu.add(new JMenuItem("View store"));
 
+        menu.add(new JMenuItem("View store"));
 
         JMenuItem cart = new JMenuItem("View cart");
         cart.addActionListener(new btnViewCart());
@@ -76,6 +75,7 @@ public class StoreScreen extends JFrame{
     private class btnViewCart implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e){
+            dispose();
 			new CartScreen(store, cart);
 		}
 	}
