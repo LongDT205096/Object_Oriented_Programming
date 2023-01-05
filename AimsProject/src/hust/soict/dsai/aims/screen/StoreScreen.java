@@ -26,11 +26,18 @@ public class StoreScreen extends JFrame{
         JMenu menu = new JMenu("Options");
 
         JMenu smUpdateStore = new JMenu("Update Store");
-        smUpdateStore.add(new JMenuItem("Add Book"));
-        smUpdateStore.add(new JMenuItem("Add CD"));
-        smUpdateStore.add(new JMenuItem("Add DVD"));
-        menu.add(smUpdateStore);
+        JMenuItem addBookMenu = new JMenuItem("Add Book");
+            addBookMenu.addActionListener(new btnMenuListener());
+        JMenuItem addDvdMenu = new JMenuItem("Add DVD");
+            addDvdMenu.addActionListener(new btnMenuListener());
+        JMenuItem addCdMenu = new JMenuItem("Add CD");
+            addCdMenu.addActionListener(new btnMenuListener());
 
+        smUpdateStore.add(addBookMenu);
+        smUpdateStore.add(addDvdMenu);
+        smUpdateStore.add(addCdMenu);
+        menu.add(smUpdateStore);
+        
         menu.add(new JMenuItem("View store"));
 
         JMenuItem cart = new JMenuItem("View cart");
@@ -72,6 +79,23 @@ public class StoreScreen extends JFrame{
         return center;
     }
 
+    private class btnMenuListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e){
+            String command = e.getActionCommand();
+            if (command.equals("Add DVD")) {
+				new AddDigitalVideoDiscToStoreScreen(store, cart);
+			} else if (command.equals("Add Book")) {
+				new AddBookToStoreScreen(store, cart);
+			} else if (command.equals("Add CD")) {
+				new AddCompactDiscToStoreScreen(store, cart);
+			} else if (command.equals("View Store")) {
+				new StoreScreen(store, cart);
+			}
+			dispose();
+		}
+    }
+
     private class btnViewCart implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e){
@@ -98,17 +122,17 @@ public class StoreScreen extends JFrame{
     public static void main(String[] args) {
         Store store = new Store();
         Cart cart = new Cart();
-		DigitalVideoDisc dvd_1 = new DigitalVideoDisc("The Lion King", "Animation",
-				19.95f, 87, "Roger Allers");
-		    store.addMedia(dvd_1);
-		DigitalVideoDisc dvd_2 = new DigitalVideoDisc("Star Wars", "Science Fiction",
-				19.95f, 87, "George Lucas");
-		    store.addMedia(dvd_2);
-        CompactDisc cd_1 = new CompactDisc("Famous Friends", "Music",
-                14.97f, 90, null, "Chris");
-            store.addMedia(cd_1);
-        CompactDisc cd_2 = new CompactDisc("Famous", "Music", 16.78f);
-            store.addMedia(cd_2);
+		// DigitalVideoDisc dvd_1 = new DigitalVideoDisc("The Lion King", "Animation",
+		// 		19.95f, 87, "Roger Allers");
+		//     store.addMedia(dvd_1);
+		// DigitalVideoDisc dvd_2 = new DigitalVideoDisc("Star Wars", "Science Fiction",
+		// 		19.95f, 87, "George Lucas");
+		//     store.addMedia(dvd_2);
+        // CompactDisc cd_1 = new CompactDisc("Famous Friends", "Music",
+        //         14.97f, 90, null, "Chris");
+        //     store.addMedia(cd_1);
+        // CompactDisc cd_2 = new CompactDisc("Famous", "Music", 16.78f);
+        //     store.addMedia(cd_2);
 
         new StoreScreen(store, cart);
 	}

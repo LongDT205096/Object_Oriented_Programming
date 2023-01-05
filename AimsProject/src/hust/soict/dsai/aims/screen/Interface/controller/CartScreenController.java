@@ -73,7 +73,10 @@ public class CartScreenController{
         if (cart.getItemsOrdered()!= null) {
     		tblMedia.setItems(cart.getItemsOrdered());
     	}
-        costTotal.setText(cart.totalCost() + "$");
+
+        if(cart.totalCost() == 0) costTotal.setText("0$");
+        else costTotal.setText(cart.totalCost() + "$");
+
         btnPlay.setVisible(false);
         btnRemove.setVisible(false);
 
