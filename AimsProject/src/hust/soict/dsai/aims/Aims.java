@@ -3,11 +3,13 @@ package hust.soict.dsai.aims;
 import java.util.*;
 
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.exception.LimitException;
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.store.Store.Store;
 import hust.soict.dsai.aims.media.*;
 
 public class Aims {
-    public static void main(String[] args){
+    public static void main(String[] args) throws LimitException, PlayerException{
         Store store = new Store();
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation",
 				19.95f, 87, "Roger Allers");

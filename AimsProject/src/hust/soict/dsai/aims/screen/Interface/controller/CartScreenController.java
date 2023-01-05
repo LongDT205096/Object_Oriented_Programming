@@ -1,9 +1,12 @@
 package hust.soict.dsai.aims.screen.Interface.controller;
 
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.*;
 import hust.soict.dsai.aims.screen.StoreScreen;
 import hust.soict.dsai.aims.store.Store.Store;
+
+import java.awt.HeadlessException;
 
 import javax.swing.JOptionPane;
 import javafx.beans.value.ChangeListener;
@@ -136,7 +139,7 @@ public class CartScreenController{
     }
 
     @FXML
-    void btnPlayPressed(ActionEvent event){
+    void btnPlayPressed(ActionEvent event) throws HeadlessException, PlayerException{
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         JOptionPane.showMessageDialog(null, ((Playable)media).play());
     }

@@ -1,10 +1,11 @@
 package hust.soict.dsai.test.cart.CartTest;
 
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.exception.LimitException;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class CartTest {
-    public static void main(String[] args){
+    public static void main(String[] args) throws LimitException{
         Cart cart = new Cart();
 
         DigitalVideoDisc dvd1 = 

@@ -5,6 +5,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import hust.soict.dsai.aims.media.*;
+import hust.soict.dsai.aims.exception.LimitException;
+import hust.soict.dsai.aims.exception.PlayerException;
 
 public class MediaStore extends JPanel{
     private Media media;
@@ -49,14 +51,23 @@ public class MediaStore extends JPanel{
     private class PlayBtnListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e){
-			JOptionPane.showMessageDialog(null, ((Playable)media).play().toString());
+			try {
+                JOptionPane.showMessageDialog(null, ((Playable)media).play().toString());
+            } catch (PlayerException e1) {
+                JOptionPane.showMessageDialog(null, e1.getMessage(), e1.toString(), JOptionPane.ERROR_MESSAGE);
+                e1.printStackTrace();
+            }
 		}
 	}
 
     private class AddCartButton implements ActionListener{
         @Override
-        public void actionPerformed(ActionEvent e){
-            StoreScreen.cart.addMedia(media);
+        public void actionPerformed(ActionEvent event){
+            try {
+                StoreScreen.cart.addMedia(media);
+            } catch (LimitException e) {
+                e.printStackTrace();;
+            }
         }
     }
 }
