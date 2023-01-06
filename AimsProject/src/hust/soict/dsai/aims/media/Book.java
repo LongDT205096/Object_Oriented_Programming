@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Book extends Media{
     public static int nbBook = 0;
-    private List<String> authors = new ArrayList<String>();
+    private ArrayList<String> authors = new ArrayList<String>();
 
     public Book(String title, int length) {
 		super(++nbBook ,title, length);

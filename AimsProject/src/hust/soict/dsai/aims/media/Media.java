@@ -33,13 +33,6 @@ public class Media {
         this.title = title;
     }
    
-    public Media(int id, String title, String category, float cost) {
-        this.id = id;
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
-    }
-
     public Media(int id, String title) {
         this.id = id; 
 		this.title = title;
@@ -51,6 +44,13 @@ public class Media {
         this.length = length; 
     }
 
+    public Media(int id, String title, String category, float cost) {
+        this.id = id;
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+    }
+
     public Media(int id, String title, String category, float cost, int length) {
         this.id = id;
         this.length = length;
@@ -58,6 +58,7 @@ public class Media {
         this.category = category;
         this.cost = cost;
     }
+    
     public boolean isMatch(String title) {
         return true;
     }	
