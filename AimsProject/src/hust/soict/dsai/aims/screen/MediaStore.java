@@ -65,6 +65,7 @@ public class MediaStore extends JPanel{
         public void actionPerformed(ActionEvent event){
             try {
                 StoreScreen.cart.addMedia(media);
+                JOptionPane.showMessageDialog(null, "Adding successful");
             } catch (LimitException e) {
                 e.printStackTrace();;
             }

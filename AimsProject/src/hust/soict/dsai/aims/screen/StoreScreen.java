@@ -122,8 +122,9 @@ public class StoreScreen extends JFrame{
     public static void main(String[] args) {
         Store store = new Store();
         Cart cart = new Cart();
-		DigitalVideoDisc dvd_1 = new DigitalVideoDisc("The Lion King", "Animation",
-				19.95f, 87, "Roger Allers");
+        Book book_1 = new Book("Twenty Thousand Leagues Under the Seas", "Adventure, Science fiction", 90f, null, ABORT);
+            store.addMedia(book_1);
+		DigitalVideoDisc dvd_1 = new DigitalVideoDisc("The Lion King", "Animation", 19.95f, 87, "Roger Allers");
 		    store.addMedia(dvd_1);
 		DigitalVideoDisc dvd_2 = new DigitalVideoDisc("Star Wars", "Science Fiction",
 				19.95f, 87, "George Lucas");
