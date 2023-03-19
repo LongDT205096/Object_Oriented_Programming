@@ -123,7 +123,7 @@ public class CartScreenController{
     	FilteredList<Media> list = new FilteredList<>(cart.getItemsOrdered(), null);
 		list.setPredicate(media -> media.filterProperty(filter, filterType));
 		
-		if (cart.getItemsOrdered()!= null) {
+		if (list != null) {
 			tblMedia.setItems(list);
 		}
     }
