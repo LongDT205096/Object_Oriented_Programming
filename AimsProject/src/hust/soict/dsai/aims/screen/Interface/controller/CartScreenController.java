@@ -7,7 +7,6 @@ import hust.soict.dsai.aims.screen.StoreScreen;
 import hust.soict.dsai.aims.store.Store.Store;
 
 import java.awt.HeadlessException;
-
 import javax.swing.JOptionPane;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -77,7 +76,7 @@ public class CartScreenController{
     		tblMedia.setItems(cart.getItemsOrdered());
     	}
 
-        if(cart.totalCost() == 0) costTotal.setText("0$");
+        if(cart.totalCost() == "0") costTotal.setText("0$");
         else costTotal.setText(cart.totalCost() + "$");
 
         btnPlay.setVisible(false);

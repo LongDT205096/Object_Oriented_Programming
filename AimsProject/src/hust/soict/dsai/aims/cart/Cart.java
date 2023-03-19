@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.cart;
 
+import java.text.DecimalFormat;
+
 import hust.soict.dsai.aims.exception.LimitException;
 import hust.soict.dsai.aims.media.*;
 
@@ -38,12 +40,14 @@ public class Cart {
         }
     }
 
-    public float totalCost(){
-        float sum=0;
+    public String totalCost(){
+        float sum = 0;
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
         for(Media x: itemsOrdered){
             sum += x.getCost();
         }
-        return sum;
+        return df.format(sum);
     }
     
     public void print(){
