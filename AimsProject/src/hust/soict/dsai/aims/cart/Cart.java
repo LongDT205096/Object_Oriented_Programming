@@ -2,6 +2,8 @@ package hust.soict.dsai.aims.cart;
 
 import java.text.DecimalFormat;
 
+import javax.swing.JOptionPane;
+
 import hust.soict.dsai.aims.exception.LimitException;
 import hust.soict.dsai.aims.media.*;
 
@@ -19,11 +21,11 @@ public class Cart {
 
     public void addMedia (Media media) throws LimitException{
         if(itemsOrdered.contains(media)){
-            System.out.println("This media has already been added.");
+            JOptionPane.showMessageDialog(null, "This media has already been added.");
         } else if(itemsOrdered.size() < MAX_NUMBERS_ORDERED){
             itemsOrdered.add(media);
             numberOfItem++;
-            System.out.println("Adding successful\n");
+            JOptionPane.showMessageDialog(null, "Adding successful");
         } else {
             throw new LimitException("ERROR: The cart is full");
         }
