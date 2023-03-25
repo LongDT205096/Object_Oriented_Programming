@@ -8,10 +8,10 @@ import hust.soict.dsai.aims.media.*;
 import hust.soict.dsai.aims.exception.LimitException;
 import hust.soict.dsai.aims.exception.PlayerException;
 
-public class MediaStore extends JPanel{
+public class CellStore extends JPanel{
     private Media media;
 
-    public MediaStore(Media media){
+    public CellStore(Media media){
         this.media = media;
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 

@@ -72,7 +72,7 @@ public class StoreScreen extends JFrame{
 
         ArrayList<Media> mediaInStore = store.getItemsInStore();
         for(int i=0; i<mediaInStore.size(); i++){
-            MediaStore cell = new MediaStore(mediaInStore.get(i));
+            CellStore cell = new CellStore(mediaInStore.get(i));
             center.add(cell);
         }
 
